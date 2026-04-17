@@ -33,6 +33,7 @@
         <nav class="nav" aria-label="Primary">
           <a href="#what">What it is</a>
           <a href="#records">Records</a>
+          <a href="#research">Research set</a>
           <a href="#workflow">Workflow</a>
           <a href="#launch">Launch</a>
         </nav>
@@ -180,6 +181,40 @@
         </div>
       </section>
 
+      <section id="research" class="section section-soft">
+        <div class="container narrow">
+          <p class="section-label">Current research set</p>
+          <h2>Search through the organizations we have already researched.</h2>
+          <p class="section-intro">
+            This is the current structured research set behind GDER, not yet the final published register.
+            It shows the entities already researched with legal-wrapper, jurisdiction, and governance context.
+          </p>
+
+          <div class="research-toolbar card">
+            <div class="search-wrap">
+              <label class="visually-hidden" for="entity-search">Search researched entities</label>
+              <input
+                id="entity-search"
+                class="search-input"
+                type="search"
+                placeholder="Search name, jurisdiction, wrapper, or summary"
+                data-entity-search
+              />
+            </div>
+            <div class="filter-wrap">
+              <label class="visually-hidden" for="entity-type-filter">Filter by entity type</label>
+              <select id="entity-type-filter" class="type-filter" data-entity-type-filter>
+                <option value="">All entity types</option>
+              </select>
+            </div>
+            <div class="results-count" data-entity-count>0 researched entities</div>
+          </div>
+
+          <div class="entity-list" data-entity-list></div>
+          <p class="entity-empty" data-entity-empty hidden>No researched entities match the current search.</p>
+        </div>
+      </section>
+
       <section id="workflow" class="section section-soft">
         <div class="container workflow-grid">
           <div>
@@ -260,5 +295,8 @@
         </div>
       </div>
     </footer>
+
+    <script src="/entities.js"></script>
+    <script src="/script.js"></script>
   </body>
 </html>
