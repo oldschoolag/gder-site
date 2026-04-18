@@ -6,31 +6,84 @@
   const resultsCount = document.querySelector('[data-entity-count]');
   const list = document.querySelector('[data-entity-list]');
   const empty = document.querySelector('[data-entity-empty]');
+  const featuredList = document.querySelector('[data-featured-list]');
 
   const statEntities = document.querySelector('[data-stat-entities]');
   const statJurisdictions = document.querySelector('[data-stat-jurisdictions]');
   const statTypes = document.querySelector('[data-stat-types]');
-  const statConfidence = document.querySelector('[data-stat-confidence]');
+  const statAnchorTypes = document.querySelector('[data-stat-anchor-types]');
 
   if (!searchInput || !typeFilter || !resultsCount || !list || !empty) return;
 
   const sortedEntities = [...entities].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-
   const uniqueValues = (key) => [...new Set(sortedEntities.map((entity) => entity[key]).filter(Boolean))];
+
   const entityTypes = uniqueValues('entityType').sort();
   const jurisdictions = uniqueValues('jurisdiction');
-  const confidenceTiers = uniqueValues('confidenceTier');
+  const anchorTypes = uniqueValues('governanceAnchorType');
 
   if (statEntities) statEntities.textContent = String(sortedEntities.length);
   if (statJurisdictions) statJurisdictions.textContent = String(jurisdictions.length);
   if (statTypes) statTypes.textContent = String(entityTypes.length);
-  if (statConfidence) statConfidence.textContent = confidenceTiers.length === 1 ? confidenceTiers[0] : confidenceTiers.join(', ');
+  if (statAnchorTypes) statAnchorTypes.textContent = String(anchorTypes.length);
 
   for (const entityType of entityTypes) {
     const option = document.createElement('option');
     option.value = entityType;
     option.textContent = entityType;
     typeFilter.appendChild(option);
+  }
+
+  const featuredIds = [
+    'dao-arbitrum-foundation',
+    'dao-ens-foundation-limited',
+    'dao-uniswap-foundation',
+  ];
+
+  const featuredEntities = featuredIds
+    .map((id) => sortedEntities.find((entity) => entity.id === id))
+    .filter(Boolean);
+
+  if (featuredList) {
+    const fallback = featuredEntities.length ? featuredEntities : sortedEntities.slice(0, 3);
+
+    for (const entity of fallback) {
+      const card = document.createElement('article');
+      card.className = 'featured-card';
+
+      const topline = document.createElement('div');
+      topline.className = 'featured-card-topline';
+
+      const label = document.createElement('span');
+      label.className = 'featured-card-label';
+      label.textContent = entity.entityType || 'entity';
+
+      const link = document.createElement('a');
+      link.className = 'featured-card-link';
+      link.href = entity.canonicalUrl;
+      link.target = '_blank';
+      link.rel = 'noreferrer';
+      link.textContent = 'Official source ↗';
+
+      topline.appendChild(label);
+      topline.appendChild(link);
+
+      const title = document.createElement('h3');
+      title.textContent = entity.name;
+
+      const meta = document.createElement('p');
+      meta.className = 'featured-card-meta';
+      meta.textContent = [entity.jurisdiction, entity.legalWrapperType].filter(Boolean).join(' • ');
+
+      const summary = document.createElement('p');
+      summary.textContent = entity.basis || 'No summary attached.';
+
+      card.appendChild(topline);
+      card.appendChild(title);
+      if (meta.textContent) card.appendChild(meta);
+      card.appendChild(summary);
+      featuredList.appendChild(card);
+    }
   }
 
   function matches(entity, term, selectedType) {
@@ -68,50 +121,47 @@
     empty.hidden = items.length > 0;
 
     for (const entity of items) {
-      const card = document.createElement('a');
-      card.className = 'entity-card';
-      card.href = entity.canonicalUrl;
-      card.target = '_blank';
-      card.rel = 'noreferrer';
+      const row = document.createElement('a');
+      row.className = 'entity-card';
+      row.href = entity.canonicalUrl;
+      row.target = '_blank';
+      row.rel = 'noreferrer';
 
-      const head = document.createElement('div');
-      head.className = 'entity-head';
+      const main = document.createElement('div');
+      main.className = 'entity-main';
 
-      const titleWrap = document.createElement('div');
       const title = document.createElement('h3');
       title.className = 'entity-title';
       title.textContent = entity.name;
-      titleWrap.appendChild(title);
+      main.appendChild(title);
 
       if (entity.legalName && entity.legalName !== entity.name) {
         const legal = document.createElement('p');
         legal.className = 'entity-legal';
         legal.textContent = entity.legalName;
-        titleWrap.appendChild(legal);
+        main.appendChild(legal);
       }
-
-      const arrow = document.createElement('span');
-      arrow.className = 'entity-arrow';
-      arrow.textContent = '↗';
-
-      head.appendChild(titleWrap);
-      head.appendChild(arrow);
 
       const meta = document.createElement('div');
       meta.className = 'entity-meta';
       if (entity.entityType) meta.appendChild(pill(entity.entityType));
       if (entity.legalWrapperType) meta.appendChild(pill(entity.legalWrapperType));
       if (entity.jurisdiction) meta.appendChild(pill(entity.jurisdiction));
-      if (entity.confidenceTier) meta.appendChild(pill(`${entity.confidenceTier} confidence`));
+
+      main.appendChild(meta);
 
       const summary = document.createElement('p');
       summary.className = 'entity-summary';
       summary.textContent = entity.basis || 'No current basis summary attached.';
 
-      card.appendChild(head);
-      card.appendChild(meta);
-      card.appendChild(summary);
-      list.appendChild(card);
+      const link = document.createElement('div');
+      link.className = 'entity-link';
+      link.textContent = 'Official source ↗';
+
+      row.appendChild(main);
+      row.appendChild(summary);
+      row.appendChild(link);
+      list.appendChild(row);
     }
   }
 

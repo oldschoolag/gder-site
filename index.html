@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#3f5949" />
+    <meta name="theme-color" content="#31453a" />
     <meta name="robots" content="index,follow" />
     <meta
       name="description"
-      content="Browse the current GDER research set of governed digital entities, inspect wrapper and jurisdiction details, and understand how research becomes record, extract, and verification."
+      content="Browse the current GDER research set of governed digital entities, inspect wrappers and jurisdictions, and understand how research becomes record, extract, and verification."
     />
     <title>GDER — Governed Digital Entity Register</title>
     <link rel="canonical" href="https://gder.net/" />
@@ -68,71 +68,86 @@
         <a class="brand-lockup" href="./" aria-label="GDER home">
           <img src="./assets/gder-lockup.svg" alt="GDER by Old School" width="720" height="220" />
         </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="#research-set">Research set</a>
-          <a href="#record-system">Record system</a>
-          <a href="#review">Review your entity</a>
-        </nav>
+        <div class="header-right">
+          <nav class="site-nav" aria-label="Primary">
+            <a href="#index">Entity index</a>
+            <a href="#system">Record system</a>
+            <a href="#review">Review your entity</a>
+          </nav>
+          <a class="header-cta" href="#review">Request review</a>
+        </div>
       </header>
 
       <main>
-        <section class="hero" id="research-set">
+        <section class="hero">
           <div class="hero-copy">
             <p class="eyebrow">Governed Digital Entity Register</p>
-            <h1>The live research set for governed digital entities.</h1>
+            <h1>A calmer public starting point for digital entity research.</h1>
             <p class="hero-subhead">
-              Start with the entities already researched. Inspect their wrapper, jurisdiction, and basis before you ever ask for a review path.
+              Browse the current research set, inspect wrappers and jurisdictions, and see which entities already have enough structure to be legible to counterparties.
             </p>
             <p class="hero-support">
-              GDER should feel like a serious inspection surface, not a marketing explainer. So the product comes first: searchable entities, clear structure, and a legible path from research to reviewed records.
+              GDER should not feel like a campaign page or a rough internal tool. It should feel like a clear, serious inspection surface that starts with the current research set and matures toward reviewed public records.
             </p>
 
-            <div class="hero-stats">
-              <article class="stat-card">
-                <span>Entities</span>
-                <strong data-stat-entities>0</strong>
-                <p>Currently structured in the research set.</p>
-              </article>
-              <article class="stat-card">
-                <span>Jurisdictions</span>
-                <strong data-stat-jurisdictions>0</strong>
-                <p>Cross-border wrappers already represented.</p>
-              </article>
-              <article class="stat-card">
-                <span>Entity types</span>
-                <strong data-stat-types>0</strong>
-                <p>Foundations, nonprofits, associations, and LLCs.</p>
-              </article>
-              <article class="stat-card">
-                <span>Confidence</span>
-                <strong data-stat-confidence>High</strong>
-                <p>Current entries are structured as qualified, high-confidence research.</p>
-              </article>
-            </div>
-
             <div class="hero-actions">
-              <a class="button button-primary" href="#browser">Browse the research set</a>
+              <a class="button button-primary" href="#index">Browse entity index</a>
               <a class="button button-secondary" href="#review">Review your entity</a>
             </div>
 
-            <div class="hero-note">
-              <p class="hero-note-kicker">Current truth</p>
+            <div class="hero-truth">
+              <p class="hero-truth-kicker">Current truth</p>
               <p>
-                This top layer is the current research set. The reviewed public register surface comes after the research and admission workflow, not before it.
+                The site begins with the live research layer. Reviewed public records, extracts, and verification surfaces come after structured review and admission.
               </p>
             </div>
           </div>
 
-          <aside class="browser-shell" id="browser" aria-label="Current GDER entity browser">
-            <div class="browser-head">
+          <aside class="hero-panel" aria-label="Current GDER research overview">
+            <div class="hero-panel-head">
               <div>
-                <p class="browser-kicker">Current research set</p>
-                <h2>Entities already researched</h2>
+                <p class="panel-kicker">Current research set</p>
+                <h2>Qualified entities already structured</h2>
               </div>
-              <p class="browser-count" data-entity-count>0 entities</p>
+              <p class="panel-count" data-entity-count>0 entities</p>
             </div>
 
-            <div class="browser-toolbar">
+            <div class="hero-stat-strip">
+              <article class="hero-stat-card">
+                <span>Entities</span>
+                <strong data-stat-entities>0</strong>
+              </article>
+              <article class="hero-stat-card">
+                <span>Jurisdictions</span>
+                <strong data-stat-jurisdictions>0</strong>
+              </article>
+              <article class="hero-stat-card">
+                <span>Entity types</span>
+                <strong data-stat-types>0</strong>
+              </article>
+              <article class="hero-stat-card">
+                <span>Anchor types</span>
+                <strong data-stat-anchor-types>0</strong>
+              </article>
+            </div>
+
+            <div class="featured-stack" data-featured-list></div>
+          </aside>
+        </section>
+
+        <section class="index-section" id="index">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Entity index</p>
+              <h2>Search the current research set.</h2>
+            </div>
+            <p class="section-heading-copy">
+              Each entry summarizes the legal wrapper, jurisdiction, and basis for inclusion, then links out to the canonical public source.
+            </p>
+          </div>
+
+          <div class="index-shell">
+            <div class="index-toolbar">
               <label class="sr-only" for="entity-search">Search entities</label>
               <input
                 id="entity-search"
@@ -148,75 +163,77 @@
               </select>
             </div>
 
-            <div class="browser-legend">
+            <div class="index-legend">
               <span><i class="legend-dot legend-dot-green"></i> qualified</span>
               <span><i class="legend-dot legend-dot-dark"></i> high-confidence research</span>
             </div>
 
             <div class="entity-list" data-entity-list></div>
             <p class="entity-empty" data-entity-empty hidden>No entities match the current search.</p>
-          </aside>
+          </div>
         </section>
 
-        <section class="section section-split" id="record-system">
+        <section class="section section-split" id="system">
           <div class="section-copy">
-            <p class="eyebrow">What research becomes</p>
-            <h2>Research should resolve into record, extract, and verification.</h2>
+            <p class="eyebrow">Record system</p>
+            <h2>Research should mature into record, extract, and verification.</h2>
             <p class="section-support">
-              GDER is not meant to stop at a list. The research layer is there to support a governed public record system with a canonical record, portable extract, and a verification path back to source.
+              The research set is the starting layer, not the endpoint. The actual GDER product is a governed public record system: one canonical record, portable extracts, and a verification path that resolves back to source.
             </p>
-            <div class="section-cards">
-              <article class="info-card">
+            <div class="system-list">
+              <article class="system-item">
                 <span>01</span>
-                <strong>Record</strong>
-                <p>The reviewed public record becomes the canonical inspection surface.</p>
+                <div>
+                  <strong>Canonical record</strong>
+                  <p>The reviewed public record becomes the main inspection surface.</p>
+                </div>
               </article>
-              <article class="info-card">
+              <article class="system-item">
                 <span>02</span>
-                <strong>Extract</strong>
-                <p>Historical and certified outputs make the record portable without making it fuzzy.</p>
+                <div>
+                  <strong>Portable extract</strong>
+                  <p>Historical or certified outputs make the record shareable without turning it into loose marketing copy.</p>
+                </div>
               </article>
-              <article class="info-card">
+              <article class="system-item">
                 <span>03</span>
-                <strong>Verify</strong>
-                <p>A relying party should be able to check whether an extract still resolves back to the record.</p>
+                <div>
+                  <strong>Verification path</strong>
+                  <p>A relying party should be able to check whether an extract still resolves back to the underlying record.</p>
+                </div>
               </article>
             </div>
           </div>
 
-          <div class="visual-stage">
-            <div class="visual-frame visual-frame-tall">
-              <img
-                src="./assets/gder-hero-record.svg"
-                alt="GDER record specimen showing record, extract, and verification surfaces"
-                width="1400"
-                height="1180"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+          <div class="visual-frame visual-frame-dark">
+            <img
+              src="./assets/gder-hero-record.svg"
+              alt="GDER record specimen showing record, extract, and verification surfaces"
+              width="1400"
+              height="1180"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </section>
 
         <section class="section section-split section-split-reverse">
-          <div class="visual-stage">
-            <div class="visual-frame">
-              <img
-                src="./assets/gder-surfaces.svg"
-                alt="GDER record, extract, and verify surface overview"
-                width="1280"
-                height="760"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+          <div class="visual-frame">
+            <img
+              src="./assets/gder-surfaces.svg"
+              alt="GDER record, extract, and verify surface overview"
+              width="1280"
+              height="760"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
           <div class="section-copy">
-            <p class="eyebrow">What each entry should make legible</p>
+            <p class="eyebrow">Inspection model</p>
             <h2>Enough structure for a counterparty to make a serious judgment.</h2>
             <p class="section-support">
-              A good GDER entry should quickly clarify the wrapper, jurisdiction, governance anchor, and basis for why the entry exists at all. That is the difference between a directory and an inspection surface.
+              A good GDER entry should quickly clarify the wrapper, jurisdiction, governance anchor, and basis for why the entity qualifies for structured inclusion.
             </p>
             <div class="inspection-grid">
               <article class="inspection-card">
@@ -225,55 +242,50 @@
               </article>
               <article class="inspection-card">
                 <span>Jurisdiction</span>
-                <p>Where the structure sits and what legal context it operates in.</p>
+                <p>The relevant legal context and where the structure sits.</p>
               </article>
               <article class="inspection-card">
                 <span>Governance anchor</span>
-                <p>The official source, forum, vote, or governance material that supports the entry.</p>
+                <p>The source, forum, proposal, vote, or official material supporting the entry.</p>
               </article>
               <article class="inspection-card">
                 <span>Basis</span>
-                <p>The short explanation for why the entry qualifies for structured inclusion.</p>
+                <p>The concise explanation for why the entry belongs in the structured set.</p>
               </article>
             </div>
           </div>
         </section>
 
-        <section class="section section-split" id="review">
-          <div class="section-copy">
-            <p class="eyebrow">Secondary action</p>
-            <h2>When an entity should be added, start the review path.</h2>
-            <p class="section-support">
-              Review comes after someone understands the product. If an entity should move toward a governed public record, the site should make the next step obvious without turning the homepage into a submission form first.
-            </p>
-            <div class="review-box">
-              <p class="review-kicker">What GDER is not</p>
-              <ul>
-                <li>not a generic directory</li>
-                <li>not a pay-to-rank listing site</li>
-                <li>not an unsupported sovereign-registry claim</li>
-              </ul>
+        <section class="review-section" id="review">
+          <div class="review-shell">
+            <div class="review-copy">
+              <p class="eyebrow">Secondary action</p>
+              <h2>When an entity should become legible, start the review path.</h2>
+              <p class="section-support">
+                Submission should not dominate the homepage. It should appear after the user understands the entity index and the record model, then offer a clear route to review.
+              </p>
+              <div class="review-box">
+                <p class="review-kicker">What GDER is not</p>
+                <ul>
+                  <li>not a generic directory</li>
+                  <li>not a pay-to-rank listing site</li>
+                  <li>not an unsupported sovereign-registry claim</li>
+                </ul>
+              </div>
             </div>
 
-            <form class="review-form" action="mailto:hello@gder.net?subject=GDER%20request%20review" method="post" enctype="text/plain">
-              <input type="hidden" name="interest" value="GDER request review" />
-              <label class="sr-only" for="review-email">Email address</label>
-              <input id="review-email" class="email-input" type="email" name="email" placeholder="Enter your email" autocomplete="email" required />
-              <button class="button button-primary" type="submit">Request review</button>
-            </form>
-            <p class="form-note">This opens a prefilled email so fit, evidence set, and review path can be qualified directly.</p>
-          </div>
-
-          <div class="visual-stage">
-            <div class="visual-frame">
-              <img
-                src="./assets/gder-review-flow.svg"
-                alt="GDER review workflow from request to published record"
-                width="1280"
-                height="420"
-                loading="lazy"
-                decoding="async"
-              />
+            <div class="review-form-shell">
+              <div class="review-form-head">
+                <p class="review-form-kicker">Request review</p>
+                <h3>Start with fit, evidence, and scope.</h3>
+              </div>
+              <form class="review-form" action="mailto:hello@gder.net?subject=GDER%20request%20review" method="post" enctype="text/plain">
+                <input type="hidden" name="interest" value="GDER request review" />
+                <label class="sr-only" for="review-email">Email address</label>
+                <input id="review-email" class="email-input" type="email" name="email" placeholder="Enter your email" autocomplete="email" required />
+                <button class="button button-primary" type="submit">Request review</button>
+              </form>
+              <p class="form-note">This opens a prefilled email so fit, evidence set, and review path can be qualified directly.</p>
             </div>
           </div>
         </section>
