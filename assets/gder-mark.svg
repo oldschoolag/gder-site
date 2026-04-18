@@ -1,0 +1,5 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GDER mark">
+  <rect x="48" y="48" width="416" height="416" rx="128" fill="#FFFDFC" stroke="#151816" stroke-width="16"/>
+  <rect x="142" y="134" width="228" height="24" rx="12" fill="#3F5949"/>
+  <text x="256" y="282" text-anchor="middle" fill="#151816" font-family="DejaVu Sans, Arial, sans-serif" font-size="118" font-weight="700">OS</text>
+</svg>

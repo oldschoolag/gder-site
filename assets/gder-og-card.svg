@@ -1,0 +1,45 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GDER social card">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="60" x2="1080" y2="570" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF9F3"/>
+      <stop offset="1" stop-color="#EDE6D9"/>
+    </linearGradient>
+    <linearGradient id="card" x1="620" y1="110" x2="980" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FAF7F0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" rx="40" fill="url(#bg)"/>
+  <rect x="54" y="54" width="1092" height="522" rx="32" fill="none" stroke="#DED5C7"/>
+
+  <g>
+    <rect x="98" y="96" width="88" height="88" rx="28" fill="#FFFDFC" stroke="#151816" stroke-width="4"/>
+    <rect x="118" y="112" width="48" height="6" rx="3" fill="#3F5949"/>
+    <text x="142" y="154" text-anchor="middle" fill="#151816" font-family="DejaVu Sans, Arial, sans-serif" font-size="22" font-weight="700">OS</text>
+    <text x="214" y="146" fill="#151816" font-family="DejaVu Sans, Arial, sans-serif" font-size="52" font-weight="600">GDER</text>
+    <text x="216" y="174" fill="#6A7068" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="700">AN OLD SCHOOL PRODUCT</text>
+  </g>
+
+  <text x="100" y="286" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="76" font-weight="600">Make the record</text>
+  <text x="100" y="360" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="76" font-weight="600">inspectable.</text>
+  <text x="102" y="430" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="500">Governed public record. Historical extracts.</text>
+  <text x="102" y="468" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="28" font-weight="500">Checkable verification path.</text>
+
+  <g>
+    <rect x="700" y="98" width="372" height="436" rx="34" fill="url(#card)" stroke="#DCCFBC"/>
+    <text x="734" y="144" fill="#667066" font-family="DejaVu Sans, Arial, sans-serif" font-size="14" font-weight="700">REVIEWED PUBLIC RECORD</text>
+    <rect x="930" y="118" width="106" height="32" rx="16" fill="#EEF5F0"/>
+    <text x="983" y="138" text-anchor="middle" fill="#2F4A39" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="700">PUBLISHED</text>
+    <text x="734" y="206" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="36" font-weight="600">Foundation Record</text>
+    <text x="734" y="236" fill="#687067" font-family="DejaVu Sans, Arial, sans-serif" font-size="16" font-weight="500">GDER-2026-0018</text>
+    <line x1="734" y1="268" x2="1038" y2="268" stroke="#E7DED0"/>
+    <text x="734" y="314" fill="#687067" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700">LEGAL WRAPPER</text>
+    <text x="1038" y="314" text-anchor="end" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="600">Foundation</text>
+    <text x="734" y="362" fill="#687067" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700">GOVERNANCE ANCHOR</text>
+    <text x="1038" y="362" text-anchor="end" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="600">Board + charter</text>
+    <text x="734" y="410" fill="#687067" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700">VERIFY</text>
+    <text x="1038" y="410" text-anchor="end" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="20" font-weight="600">Canonical match</text>
+    <rect x="734" y="452" width="164" height="34" rx="17" fill="#EEF5F0"/>
+    <text x="816" y="473" text-anchor="middle" fill="#2F4A39" font-family="DejaVu Sans, Arial, sans-serif" font-size="12" font-weight="700">EVIDENCE-FIRST</text>
+  </g>
+</svg>

@@ -8,7 +8,13 @@
 
   if (!searchInput || !typeFilter || !resultsCount || !list || !empty) return;
 
-  const entityTypes = [...new Set(entities.map((entity) => entity.entityType).filter(Boolean))].sort();
+  const sortedEntities = [...entities].sort((a, b) => {
+    const aName = a?.name || '';
+    const bName = b?.name || '';
+    return aName.localeCompare(bName);
+  });
+
+  const entityTypes = [...new Set(sortedEntities.map((entity) => entity.entityType).filter(Boolean))].sort();
 
   for (const entityType of entityTypes) {
     const option = document.createElement('option');
@@ -105,11 +111,11 @@
   function update() {
     const term = searchInput.value.trim().toLowerCase();
     const selectedType = typeFilter.value;
-    const items = entities.filter((entity) => matches(entity, term, selectedType));
+    const items = sortedEntities.filter((entity) => matches(entity, term, selectedType));
     render(items);
   }
 
   searchInput.addEventListener('input', update);
   typeFilter.addEventListener('change', update);
-  render(entities);
+  render(sortedEntities);
 })();

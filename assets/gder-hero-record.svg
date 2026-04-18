@@ -1,0 +1,102 @@
+<svg width="1400" height="1180" viewBox="0 0 1400 1180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GDER reviewed public record specimen with extract and verification surfaces">
+  <defs>
+    <linearGradient id="bg" x1="180" y1="80" x2="1220" y2="1080" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFBF7"/>
+      <stop offset="1" stop-color="#EEE7DA"/>
+    </linearGradient>
+    <linearGradient id="sheet" x1="380" y1="180" x2="860" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#FBF8F1"/>
+    </linearGradient>
+    <filter id="shadow" x="0" y="0" width="1400" height="1180" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="42" stdDeviation="36" flood-color="#1A1D1C" flood-opacity="0.14"/>
+    </filter>
+  </defs>
+
+  <rect x="56" y="56" width="1288" height="1068" rx="54" fill="url(#bg)" stroke="#DDD4C4"/>
+  <g opacity="0.45">
+    <path d="M160 250H1240" stroke="#D9D1C1"/>
+    <path d="M160 360H1240" stroke="#E4DCCF"/>
+    <path d="M160 470H1240" stroke="#E4DCCF"/>
+    <path d="M160 580H1240" stroke="#E4DCCF"/>
+    <path d="M160 690H1240" stroke="#E4DCCF"/>
+    <path d="M160 800H1240" stroke="#E4DCCF"/>
+    <path d="M160 910H1240" stroke="#E4DCCF"/>
+    <path d="M260 150V1010" stroke="#E7E0D4"/>
+    <path d="M420 150V1010" stroke="#E7E0D4"/>
+    <path d="M580 150V1010" stroke="#E7E0D4"/>
+    <path d="M740 150V1010" stroke="#E7E0D4"/>
+    <path d="M900 150V1010" stroke="#E7E0D4"/>
+    <path d="M1060 150V1010" stroke="#E7E0D4"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <g transform="translate(338 146) rotate(-5 260 330)">
+      <rect width="560" height="720" rx="38" fill="url(#sheet)" stroke="#D7CDBC"/>
+      <rect x="36" y="36" width="488" height="56" rx="18" fill="#F7F3EA" stroke="#E1D8CA"/>
+      <text x="64" y="70" fill="#646C62" font-family="Inter, Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="2">REVIEWED PUBLIC RECORD</text>
+      <rect x="400" y="46" width="92" height="34" rx="17" fill="#EEF5F0"/>
+      <text x="446" y="68" text-anchor="middle" fill="#2F4A39" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.4">PUBLISHED</text>
+
+      <text x="52" y="154" fill="#141715" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="600" letter-spacing="-2">Foundation Record</text>
+      <text x="54" y="192" fill="#6A7068" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="500">GDER-2026-0018</text>
+
+      <line x1="52" y1="234" x2="508" y2="234" stroke="#E1D8CA"/>
+
+      <text x="52" y="286" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">LEGAL WRAPPER</text>
+      <text x="508" y="286" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Foundation</text>
+      <line x1="52" y1="310" x2="508" y2="310" stroke="#E7DED0"/>
+
+      <text x="52" y="362" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">GOVERNANCE ANCHOR</text>
+      <text x="508" y="362" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Board + charter</text>
+      <line x1="52" y1="386" x2="508" y2="386" stroke="#E7DED0"/>
+
+      <text x="52" y="438" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">CONTROL SURFACE</text>
+      <text x="508" y="438" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Treasury / delegates</text>
+      <line x1="52" y1="462" x2="508" y2="462" stroke="#E7DED0"/>
+
+      <text x="52" y="514" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">STATUS</text>
+      <text x="508" y="514" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600">Active</text>
+      <line x1="52" y1="538" x2="508" y2="538" stroke="#E7DED0"/>
+
+      <text x="52" y="620" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">LIFECYCLE HISTORY</text>
+      <circle cx="98" cy="672" r="10" fill="#405A4A"/>
+      <circle cx="194" cy="672" r="10" fill="#405A4A"/>
+      <circle cx="290" cy="672" r="10" fill="#405A4A"/>
+      <circle cx="386" cy="672" r="10" fill="#405A4A"/>
+      <line x1="108" y1="672" x2="184" y2="672" stroke="#96A899" stroke-width="3"/>
+      <line x1="204" y1="672" x2="280" y2="672" stroke="#96A899" stroke-width="3"/>
+      <line x1="300" y1="672" x2="376" y2="672" stroke="#96A899" stroke-width="3"/>
+
+      <text x="52" y="715" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="1.8">RECORD POSTURE</text>
+      <text x="52" y="752" fill="#1A1D1B" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">Governed. Inspectable. Evidence-backed.</text>
+    </g>
+
+    <g transform="translate(934 190) rotate(6 150 150)">
+      <rect width="316" height="256" rx="30" fill="#FFFDFC" stroke="#DED4C4"/>
+      <text x="28" y="50" fill="#666E64" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.8">CERTIFIED EXTRACT</text>
+      <rect x="28" y="78" width="260" height="1" fill="#E7DED0"/>
+      <text x="28" y="128" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.6">ISSUED</text>
+      <text x="288" y="128" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">17 Apr 2026</text>
+      <text x="28" y="176" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.6">DIGEST</text>
+      <text x="288" y="176" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">9F32 • 18AE</text>
+      <text x="28" y="224" fill="#687067" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.6">SCOPE</text>
+      <text x="288" y="224" text-anchor="end" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="600">Public relying copy</text>
+    </g>
+
+    <g transform="translate(982 770)">
+      <rect width="282" height="164" rx="30" fill="#FFFDFC" stroke="#DED4C4"/>
+      <rect x="24" y="24" width="64" height="64" rx="22" fill="#EEF5F0"/>
+      <path d="M44 56L55 67L71 47" stroke="#2F4A39" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+      <text x="108" y="52" fill="#6A7068" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="1.6">VERIFICATION</text>
+      <text x="108" y="88" fill="#171A18" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="600" letter-spacing="-0.8">Canonical match</text>
+      <text x="24" y="124" fill="#5E665D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">This extract resolves back to the current record.</text>
+    </g>
+
+    <g transform="translate(1040 566)">
+      <circle cx="82" cy="82" r="82" fill="#EEF3EC" stroke="#D9E5DB"/>
+      <text x="82" y="72" text-anchor="middle" fill="#30503D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">ADMITTED</text>
+      <text x="82" y="104" text-anchor="middle" fill="#30503D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="2">RECORD</text>
+    </g>
+  </g>
+</svg>

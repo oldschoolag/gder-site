@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: gder.net
+Sitemap: https://gder.net/sitemap.xml

@@ -1,0 +1,22 @@
+{
+  "name": "GDER",
+  "short_name": "GDER",
+  "description": "Governed Digital Entity Register by Old School.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1e8",
+  "theme_color": "#3f5949",
+  "icons": [
+    {
+      "src": "./assets/gder-mark.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./assets/gder-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

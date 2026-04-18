@@ -1,0 +1,38 @@
+<svg width="1280" height="420" viewBox="0 0 1280 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GDER review workflow from request to published record and verification outputs">
+  <defs>
+    <linearGradient id="flowbg" x1="100" y1="80" x2="1180" y2="340" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF9F3"/>
+      <stop offset="1" stop-color="#F0E9DE"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="40" width="1200" height="340" rx="40" fill="url(#flowbg)" stroke="#DED4C4"/>
+  <path d="M182 212H1098" stroke="#BBC9BC" stroke-width="4" stroke-dasharray="10 12"/>
+
+  <g>
+    <circle cx="182" cy="212" r="34" fill="#405A4A"/>
+    <text x="182" y="220" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">1</text>
+    <text x="120" y="114" fill="#141715" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.8">Request review</text>
+    <text x="120" y="150" fill="#5F665D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Start with the entity, scope, and reason the record should exist.</text>
+  </g>
+
+  <g>
+    <circle cx="486" cy="212" r="34" fill="#405A4A"/>
+    <text x="486" y="220" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">2</text>
+    <text x="424" y="288" fill="#141715" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.8">Submit evidence</text>
+    <text x="424" y="324" fill="#5F665D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Documents, governance materials, and factual support enter review.</text>
+  </g>
+
+  <g>
+    <circle cx="792" cy="212" r="34" fill="#405A4A"/>
+    <text x="792" y="220" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">3</text>
+    <text x="706" y="114" fill="#141715" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.8">Structured assessment</text>
+    <text x="706" y="150" fill="#5F665D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Wrapper, governance, control surface, and source quality are tested.</text>
+  </g>
+
+  <g>
+    <circle cx="1098" cy="212" r="34" fill="#405A4A"/>
+    <text x="1098" y="220" text-anchor="middle" fill="white" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">4</text>
+    <text x="1008" y="288" fill="#141715" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="-0.8">Publish + verify</text>
+    <text x="1008" y="324" fill="#5F665D" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Admitted facts become public record, extract, and verification surfaces.</text>
+  </g>
+</svg>
