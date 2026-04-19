@@ -56,7 +56,7 @@
 
       const label = document.createElement('span');
       label.className = 'featured-card-label';
-      label.textContent = entity.entityType || 'entity';
+      label.textContent = `Research set • ${entity.entityType || 'entity'}`;
 
       const link = document.createElement('a');
       link.className = 'featured-card-link';
@@ -144,6 +144,7 @@
 
       const meta = document.createElement('div');
       meta.className = 'entity-meta';
+      meta.appendChild(pill('Research set'));
       if (entity.entityType) meta.appendChild(pill(entity.entityType));
       if (entity.legalWrapperType) meta.appendChild(pill(entity.legalWrapperType));
       if (entity.jurisdiction) meta.appendChild(pill(entity.jurisdiction));
