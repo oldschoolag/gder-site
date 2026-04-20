@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#12151d" />
+    <meta name="robots" content="index,follow" />
+    <meta name="description" content="Request a new GDER listing." />
+    <title>Request listing — GDER</title>
+    <link rel="canonical" href="https://gder.net/newlisting/" />
+    <link rel="icon" href="/assets/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/assets/gder-mark.svg" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/entities.js" defer></script>
+    <script src="/script.js" defer></script>
+  </head>
+  <body class="page-form">
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand-lockup" href="/" aria-label="GDER home">
+          <img src="/assets/gder-lockup.svg" alt="GDER by Old School" width="720" height="220" />
+        </a>
+
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/full-list/">Show all entities</a>
+          <a class="button button-primary button-compact" href="/newlisting/">Request listing</a>
+        </nav>
+      </header>
+
+      <main>
+        
+      <section class="page-card">
+        <p class="eyebrow">Request listing</p>
+        <h1 data-listing-title>Request listing</h1>
+        <p class="form-intro" data-listing-intro>
+          Fill in the required fields and use an official email address connected to the entity.
+        </p>
+      </section>
+
+      <section class="form-shell">
+        <form data-listing-form>
+          <input type="hidden" name="mode" value="new" data-field-mode />
+          <input type="hidden" name="entitySlug" value="" data-field-entity-slug />
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label class="field-label" for="entityName">Entity name</label>
+              <input id="entityName" class="field-input" type="text" name="entityName" required data-field-entity-name />
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="legalName">Legal name</label>
+              <input id="legalName" class="field-input" type="text" name="legalName" required />
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="entityType">Entity type</label>
+              <input id="entityType" class="field-input" type="text" name="entityType" required />
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="legalWrapperType">Documented wrapper</label>
+              <input id="legalWrapperType" class="field-input" type="text" name="legalWrapperType" required />
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="jurisdiction">Jurisdiction</label>
+              <input id="jurisdiction" class="field-input" type="text" name="jurisdiction" required />
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="officialWebsite">Official website</label>
+              <input id="officialWebsite" class="field-input" type="url" name="officialWebsite" />
+            </div>
+            <div class="form-field form-field-wide">
+              <label class="field-label" for="governance">Governance</label>
+              <textarea id="governance" class="field-textarea" name="governance" required></textarea>
+            </div>
+            <div class="form-field form-field-wide">
+              <label class="field-label" for="operatingControl">Operating control</label>
+              <textarea id="operatingControl" class="field-textarea" name="operatingControl" required></textarea>
+            </div>
+            <div class="form-field form-field-wide">
+              <label class="field-label" for="evidenceLinks">Supporting evidence / sources</label>
+              <textarea id="evidenceLinks" class="field-textarea" name="evidenceLinks" required></textarea>
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="representativeName">Representative name</label>
+              <input id="representativeName" class="field-input" type="text" name="representativeName" required />
+            </div>
+            <div class="form-field">
+              <label class="field-label" for="representativeRole">Representative role</label>
+              <input id="representativeRole" class="field-input" type="text" name="representativeRole" required />
+            </div>
+            <div class="form-field form-field-wide">
+              <label class="field-label" for="officialEmail">Official email</label>
+              <input id="officialEmail" class="field-input" type="email" name="officialEmail" placeholder="name@entity-domain" required />
+            </div>
+            <div class="form-field form-field-wide">
+              <label class="field-label" for="notes">Additional notes</label>
+              <textarea id="notes" class="field-textarea" name="notes"></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="button button-primary" type="submit">Send to GDER</button>
+            <p class="form-note">This opens an email draft to hello@gder.net with the information you entered.</p>
+          </div>
+        </form>
+      </section>
+    
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <p class="footer-product">GDER · Governed Digital Entity Register</p>
+          <p class="footer-note">An Old School product.</p>
+          <p class="footer-disclaimer">GDER is a governed, publicly inspectable register. It is not presented as a sovereign-registry replacement.</p>
+        </div>
+
+        <div class="footer-links-grid">
+          <div>
+            <p class="footer-heading">Legal</p>
+            <a href="/terms/">Terms</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="/data-security/">Data security</a>
+            <a href="/disclaimers/">Disclaimers</a>
+          </div>
+          <div>
+            <p class="footer-heading">Projects</p>
+            <a href="https://oldschool.ag/" target="_blank" rel="noreferrer">Old School</a>
+            <a href="https://faivr.ai/" target="_blank" rel="noreferrer">FAIVR</a>
+          </div>
+          <div>
+            <p class="footer-heading">Contact</p>
+            <a href="mailto:hello@gder.net">hello@gder.net</a>
+            <span>Old School GmbH</span>
+            <span>Zugerstrasse 88 · 6318 Walchwil · Switzerland</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

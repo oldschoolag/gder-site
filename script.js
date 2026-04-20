@@ -1,191 +1,196 @@
 (function () {
   const entities = Array.isArray(window.GDER_ENTITIES) ? window.GDER_ENTITIES : [];
 
-  const statEntities = document.querySelector('[data-stat-entities]');
-  const statJurisdictions = document.querySelector('[data-stat-jurisdictions]');
-  const statWrappers = document.querySelector('[data-stat-wrappers]');
-  const featuredCards = document.querySelector('[data-featured-cards]');
-  const searchInput = document.querySelector('[data-entity-search]');
-  const typeFilter = document.querySelector('[data-entity-type-filter]');
-  const entityGrid = document.querySelector('[data-entity-grid]');
-  const browserResults = document.querySelector('[data-browser-results]');
-  const entityEmpty = document.querySelector('[data-entity-empty]');
-
-  if (!featuredCards || !searchInput || !typeFilter || !entityGrid || !browserResults || !entityEmpty) {
-    return;
+  function slugify(value) {
+    return String(value || '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
   }
 
-  const sortedEntities = [...entities].sort((a, b) => (a.name || '').localeCompare(b.name || ''));
-  const unique = (key) => [...new Set(sortedEntities.map((entity) => entity[key]).filter(Boolean))];
-  const jurisdictions = unique('jurisdiction');
-  const wrapperTypes = unique('legalWrapperType');
-  const entityTypes = unique('entityType').sort();
-
-  if (statEntities) statEntities.textContent = String(sortedEntities.length);
-  if (statJurisdictions) statJurisdictions.textContent = String(jurisdictions.length);
-  if (statWrappers) statWrappers.textContent = String(wrapperTypes.length);
-
-  for (const entityType of entityTypes) {
-    const option = document.createElement('option');
-    option.value = entityType;
-    option.textContent = entityType;
-    typeFilter.appendChild(option);
+  function entityPath(entity) {
+    return `/${slugify(entity.name)}/`;
   }
 
-  const featuredIds = [
-    'dao-arbitrum-foundation',
-    'dao-ens-foundation-limited',
-    'dao-uniswap-foundation',
-  ];
-
-  const featured = featuredIds
-    .map((id) => sortedEntities.find((entity) => entity.id === id))
-    .filter(Boolean);
-
-  const laneFeatured = featured.length ? featured : sortedEntities.slice(0, 3);
-
-  function truncate(text, maxLength) {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
-    return `${text.slice(0, maxLength).trim()}…`;
+  function byName(a, b) {
+    return (a.name || '').localeCompare(b.name || '');
   }
 
-  function makeCardLabel(text, className) {
-    const node = document.createElement('span');
-    node.className = className;
-    node.textContent = text;
-    return node;
-  }
+  function setupAutocomplete() {
+    const root = document.querySelector('[data-autocomplete-root]');
+    const input = document.querySelector('[data-search-input]');
+    const suggestions = document.querySelector('[data-search-suggestions]');
 
-  function makePill(value, className) {
-    const pill = document.createElement('span');
-    pill.className = className;
-    pill.textContent = value;
-    return pill;
-  }
+    if (!root || !input || !suggestions) return;
 
-  function renderFeaturedCards(items) {
-    featuredCards.innerHTML = '';
+    const sortedEntities = [...entities].sort(byName);
+    let activeMatches = [];
 
-    for (const entity of items.slice(0, 3)) {
-      const card = document.createElement('article');
-      card.className = 'feature-card';
-
-      const head = document.createElement('div');
-      head.className = 'feature-card-head';
-      head.appendChild(makeCardLabel('Research set', 'feature-card-label'));
-
-      const link = document.createElement('a');
-      link.className = 'feature-card-link';
-      link.href = entity.canonicalUrl;
-      link.target = '_blank';
-      link.rel = 'noreferrer';
-      link.textContent = 'Official source ↗';
-      head.appendChild(link);
-
-      const title = document.createElement('h3');
-      title.textContent = entity.name;
-
-      const pills = document.createElement('div');
-      pills.className = 'feature-card-pills';
-      pills.appendChild(makePill('Research set', 'card-pill'));
-      if (entity.legalWrapperType) pills.appendChild(makePill(entity.legalWrapperType, 'card-pill'));
-      if (entity.jurisdiction) pills.appendChild(makePill(entity.jurisdiction, 'card-pill'));
-
-      const summary = document.createElement('p');
-      summary.textContent = truncate(entity.basis, 170);
-
-      card.appendChild(head);
-      card.appendChild(title);
-      card.appendChild(pills);
-      card.appendChild(summary);
-      featuredCards.appendChild(card);
+    function clearSuggestions() {
+      suggestions.innerHTML = '';
+      suggestions.hidden = true;
+      activeMatches = [];
     }
-  }
 
-  function matches(entity, searchTerm, selectedType) {
-    const haystack = [
-      entity.name,
-      entity.legalName,
-      entity.entityType,
-      entity.legalWrapperType,
-      entity.jurisdiction,
-      entity.formationCountry,
-      entity.basis,
-      entity.governanceAnchorType,
-      entity.confidenceTier,
-    ]
-      .filter(Boolean)
-      .join(' ')
-      .toLowerCase();
+    function goToEntity(entity) {
+      if (!entity) return;
+      window.location.href = entityPath(entity);
+    }
 
-    const searchOk = !searchTerm || haystack.includes(searchTerm);
-    const typeOk = !selectedType || entity.entityType === selectedType;
-    return searchOk && typeOk;
-  }
+    function renderSuggestions(matches) {
+      suggestions.innerHTML = '';
+      activeMatches = matches;
 
-  function renderGrid(items) {
-    entityGrid.innerHTML = '';
-    browserResults.textContent = `${items.length} ${items.length === 1 ? 'entity' : 'entities'}`;
-    entityEmpty.hidden = items.length > 0;
-
-    for (const entity of items) {
-      const card = document.createElement('a');
-      card.className = 'entity-card';
-      card.href = entity.canonicalUrl;
-      card.target = '_blank';
-      card.rel = 'noreferrer';
-
-      const head = document.createElement('div');
-      head.className = 'entity-card-head';
-
-      const left = document.createElement('div');
-      const title = document.createElement('h3');
-      title.textContent = entity.name;
-      left.appendChild(title);
-
-      if (entity.legalName && entity.legalName !== entity.name) {
-        const legal = document.createElement('p');
-        legal.className = 'entity-legal';
-        legal.textContent = entity.legalName;
-        left.appendChild(legal);
+      if (!matches.length) {
+        clearSuggestions();
+        return;
       }
 
-      const source = document.createElement('span');
-      source.className = 'entity-source';
-      source.textContent = 'Official source ↗';
+      const list = document.createElement('div');
+      list.className = 'suggestion-list';
 
-      head.appendChild(left);
-      head.appendChild(source);
+      for (const entity of matches.slice(0, 8)) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'suggestion-item';
 
-      const pills = document.createElement('div');
-      pills.className = 'entity-card-pills';
-      pills.appendChild(makePill('Research set', 'entity-pill'));
-      if (entity.entityType) pills.appendChild(makePill(entity.entityType, 'entity-pill'));
-      if (entity.legalWrapperType) pills.appendChild(makePill(entity.legalWrapperType, 'entity-pill'));
-      if (entity.jurisdiction) pills.appendChild(makePill(entity.jurisdiction, 'entity-pill'));
+        const name = document.createElement('strong');
+        name.textContent = entity.name;
 
-      const basis = document.createElement('p');
-      basis.className = 'entity-basis';
-      basis.textContent = truncate(entity.basis, 170);
+        const meta = document.createElement('span');
+        const wrapper = entity.legalWrapperType || 'Wrapper pending';
+        const jurisdiction = entity.jurisdiction || 'Jurisdiction pending';
+        meta.textContent = `${wrapper} · ${jurisdiction}`;
 
-      card.appendChild(head);
-      card.appendChild(pills);
-      card.appendChild(basis);
-      entityGrid.appendChild(card);
+        button.appendChild(name);
+        button.appendChild(meta);
+        button.addEventListener('click', function () {
+          goToEntity(entity);
+        });
+
+        list.appendChild(button);
+      }
+
+      suggestions.appendChild(list);
+      suggestions.hidden = false;
     }
+
+    function updateSuggestions() {
+      const value = input.value.trim().toLowerCase();
+      if (!value) {
+        clearSuggestions();
+        return;
+      }
+
+      const startsWith = [];
+      const includes = [];
+
+      for (const entity of sortedEntities) {
+        const name = (entity.name || '').toLowerCase();
+        const legal = (entity.legalName || '').toLowerCase();
+        if (name.startsWith(value) || legal.startsWith(value)) {
+          startsWith.push(entity);
+        } else if (name.includes(value) || legal.includes(value)) {
+          includes.push(entity);
+        }
+      }
+
+      renderSuggestions(startsWith.concat(includes));
+    }
+
+    input.addEventListener('input', updateSuggestions);
+
+    input.addEventListener('keydown', function (event) {
+      if (event.key !== 'Enter') return;
+      event.preventDefault();
+
+      const value = input.value.trim().toLowerCase();
+      if (!value) return;
+
+      const exact = activeMatches.find(function (entity) {
+        return (entity.name || '').toLowerCase() === value || (entity.legalName || '').toLowerCase() === value;
+      });
+
+      if (exact) {
+        goToEntity(exact);
+        return;
+      }
+
+      if (activeMatches.length === 1) {
+        goToEntity(activeMatches[0]);
+      }
+    });
+
+    document.addEventListener('click', function (event) {
+      if (!root.contains(event.target)) {
+        clearSuggestions();
+      }
+    });
   }
 
-  function updateGrid() {
-    const searchTerm = searchInput.value.trim().toLowerCase();
-    const selectedType = typeFilter.value;
-    const filtered = sortedEntities.filter((entity) => matches(entity, searchTerm, selectedType));
-    renderGrid(filtered);
+  function setupListingForm() {
+    const form = document.querySelector('[data-listing-form]');
+    if (!form) return;
+
+    const title = document.querySelector('[data-listing-title]');
+    const intro = document.querySelector('[data-listing-intro]');
+    const entityNameInput = document.querySelector('[data-field-entity-name]');
+    const hiddenMode = document.querySelector('[data-field-mode]');
+    const hiddenEntity = document.querySelector('[data-field-entity-slug]');
+
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get('mode');
+    const slug = params.get('entity');
+
+    if (mode === 'edit' && slug) {
+      const entity = entities.find(function (item) {
+        return slugify(item.name) === slug;
+      });
+
+      if (entity) {
+        if (title) title.textContent = 'Request edit';
+        if (intro) {
+          intro.textContent = 'Submit the updated information and use an official email address connected to the entity.';
+        }
+        if (entityNameInput) entityNameInput.value = entity.name;
+        if (hiddenMode) hiddenMode.value = 'edit';
+        if (hiddenEntity) hiddenEntity.value = slug;
+      }
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const modeValue = formData.get('mode') || 'new';
+      const entityValue = formData.get('entityName') || 'Entity';
+      const subjectPrefix = modeValue === 'edit' ? 'GDER edit request' : 'GDER listing request';
+      const subject = `${subjectPrefix}: ${entityValue}`;
+
+      const lines = [
+        `Request type: ${modeValue}`,
+        `Entity name: ${formData.get('entityName') || ''}`,
+        `Legal name: ${formData.get('legalName') || ''}`,
+        `Entity type: ${formData.get('entityType') || ''}`,
+        `Documented wrapper: ${formData.get('legalWrapperType') || ''}`,
+        `Jurisdiction: ${formData.get('jurisdiction') || ''}`,
+        `Governance: ${formData.get('governance') || ''}`,
+        `Operating control: ${formData.get('operatingControl') || ''}`,
+        `Official website: ${formData.get('officialWebsite') || ''}`,
+        `Supporting evidence / sources: ${formData.get('evidenceLinks') || ''}`,
+        `Representative name: ${formData.get('representativeName') || ''}`,
+        `Representative role: ${formData.get('representativeRole') || ''}`,
+        `Official entity email: ${formData.get('officialEmail') || ''}`,
+        `Additional notes: ${formData.get('notes') || ''}`,
+      ];
+
+      const mailto = `mailto:hello@gder.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+      window.location.href = mailto;
+    });
   }
 
-  renderFeaturedCards(laneFeatured);
-  renderGrid(sortedEntities);
-
-  searchInput.addEventListener('input', updateGrid);
-  typeFilter.addEventListener('change', updateGrid);
+  setupAutocomplete();
+  setupListingForm();
 })();
