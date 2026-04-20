@@ -1,0 +1,117 @@
+<svg width="1600" height="1120" viewBox="0 0 1600 1120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GDER hero visual showing a counterparty dossier, research set, and verification extract">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1480" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF8F2"/>
+      <stop offset="1" stop-color="#E9E1D4"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(820 260) rotate(90) scale(300 700)">
+      <stop stop-color="rgba(63,89,73,0.12)"/>
+      <stop offset="1" stop-color="rgba(63,89,73,0)"/>
+    </radialGradient>
+    <linearGradient id="darkPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#18241D"/>
+      <stop offset="1" stop-color="#0E1612"/>
+    </linearGradient>
+    <linearGradient id="paperPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#FFFDF8"/>
+      <stop offset="1" stop-color="#F5F0E6"/>
+    </linearGradient>
+    <linearGradient id="midnightPanel" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#171F34"/>
+      <stop offset="1" stop-color="#0E1524"/>
+    </linearGradient>
+    <filter id="shadowLarge" x="0" y="0" width="1600" height="1120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="40" stdDeviation="34" flood-color="#111421" flood-opacity="0.16"/>
+    </filter>
+    <filter id="shadowMedium" x="0" y="0" width="1600" height="1120" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="22" stdDeviation="18" flood-color="#111421" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="1120" rx="56" fill="url(#bg)"/>
+  <rect width="1600" height="1120" rx="56" fill="url(#halo)"/>
+
+  <g opacity="0.22">
+    <path d="M88 88H1512" stroke="#DDD5C8"/>
+    <path d="M88 1032H1512" stroke="#DDD5C8"/>
+    <path d="M800 88V1032" stroke="#E5DCCE"/>
+  </g>
+
+  <g filter="url(#shadowLarge)">
+    <g transform="translate(438 122)">
+      <rect width="724" height="864" rx="44" fill="url(#paperPanel)" stroke="#D8D0C2"/>
+      <rect x="28" y="28" width="668" height="808" rx="34" fill="#FFFDF8" stroke="rgba(17,21,18,0.06)"/>
+      <text x="70" y="84" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="3">REVIEWED PUBLIC RECORD</text>
+      <text x="70" y="154" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="56" font-weight="620" letter-spacing="-1.8">Make governed digital entities legible.</text>
+      <rect x="70" y="176" width="104" height="6" rx="3" fill="#3F5949"/>
+      <rect x="520" y="58" width="132" height="40" rx="20" fill="rgba(63,89,73,0.08)" stroke="rgba(63,89,73,0.12)"/>
+      <text x="586" y="83" text-anchor="middle" fill="#22342B" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.6">REVIEWED RECORD</text>
+
+      <line x1="70" y1="236" x2="654" y2="236" stroke="#E8E0D4"/>
+      <text x="70" y="286" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">ENTITY</text>
+      <text x="654" y="286" text-anchor="end" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="30" font-weight="600">Arbitrum Foundation</text>
+
+      <line x1="70" y1="332" x2="654" y2="332" stroke="#E8E0D4"/>
+      <text x="70" y="382" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">WRAPPER</text>
+      <text x="654" y="382" text-anchor="end" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="30" font-weight="600">Foundation company</text>
+
+      <line x1="70" y1="428" x2="654" y2="428" stroke="#E8E0D4"/>
+      <text x="70" y="478" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">JURISDICTION</text>
+      <text x="654" y="478" text-anchor="end" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="30" font-weight="600">Cayman Islands</text>
+
+      <line x1="70" y1="524" x2="654" y2="524" stroke="#E8E0D4"/>
+      <text x="70" y="574" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">GOVERNANCE ANCHOR</text>
+      <text x="654" y="574" text-anchor="end" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="30" font-weight="600">Charter · public docs · forum</text>
+
+      <line x1="70" y1="620" x2="654" y2="620" stroke="#E8E0D4"/>
+      <text x="70" y="670" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">COUNTERPARTY TRUTH</text>
+      <text x="654" y="670" text-anchor="end" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="30" font-weight="600">Why the entity belongs in the governed set</text>
+
+      <rect x="70" y="718" width="584" height="90" rx="26" fill="#F7F3EB" stroke="#E8E0D4"/>
+      <text x="100" y="754" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">PRODUCT MODEL</text>
+      <text x="100" y="794" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="34" font-weight="620" letter-spacing="-1">Research set → reviewed record → extract → verify</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadowMedium)">
+    <g transform="translate(130 348)">
+      <rect width="376" height="372" rx="32" fill="url(#darkPanel)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="42" fill="rgba(255,255,255,0.68)" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">RESEARCH SET</text>
+      <text x="30" y="94" fill="#FFFFFF" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="34" font-weight="600">Current public inspection layer.</text>
+      <rect x="30" y="118" width="92" height="5" rx="2.5" fill="#3F5949"/>
+      <rect x="30" y="148" width="316" height="66" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="50" y="174" fill="rgba(255,255,255,0.56)" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2.4">ENTITY · WRAPPER · SOURCE</text>
+      <text x="50" y="204" fill="#FFFFFF" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="22" font-weight="600">ENS Foundation</text>
+      <rect x="30" y="228" width="316" height="66" rx="18" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="50" y="254" fill="rgba(255,255,255,0.56)" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2.4">ENTITY · WRAPPER · SOURCE</text>
+      <text x="50" y="284" fill="#FFFFFF" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="22" font-weight="600">Uniswap Foundation</text>
+      <text x="30" y="338" fill="rgba(255,255,255,0.64)" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="14" font-weight="500">Research set is public. Reviewed record is a higher-confidence surface.</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadowMedium)">
+    <g transform="translate(1098 284)">
+      <rect width="330" height="238" rx="30" fill="url(#midnightPanel)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="28" y="40" fill="rgba(255,255,255,0.68)" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="3">PORTABLE EXTRACT</text>
+      <text x="28" y="90" fill="#FFFFFF" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="32" font-weight="600">Shareable output tied back to source.</text>
+      <rect x="28" y="112" width="90" height="5" rx="2.5" fill="#D7F5E3"/>
+      <text x="28" y="160" fill="rgba(255,255,255,0.64)" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.6">SERIOUS USE</text>
+      <text x="28" y="206" fill="#FFFFFF" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="22" font-weight="600">Not a loose directory claim. A record-linked counterparty artifact.</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadowMedium)">
+    <g transform="translate(1112 646) rotate(4 160 122)">
+      <rect width="320" height="244" rx="28" fill="#FFFDF8" stroke="#DDD5C8"/>
+      <text x="26" y="40" fill="#667165" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="2.8">VERIFY</text>
+      <text x="26" y="84" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="28" font-weight="620">A relying party should be able to check the extract against the source record.</text>
+      <line x1="26" y1="114" x2="294" y2="114" stroke="#E8E0D4"/>
+      <circle cx="46" cy="154" r="10" fill="#3F5949"/>
+      <text x="72" y="160" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="20" font-weight="600">Research</text>
+      <circle cx="46" cy="194" r="10" fill="#111512"/>
+      <text x="72" y="200" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="20" font-weight="600">Record</text>
+      <circle cx="46" cy="234" r="10" fill="#D7F5E3" stroke="#3F5949"/>
+      <text x="72" y="240" fill="#111512" font-family="Inter, SF Pro Display, Arial, sans-serif" font-size="20" font-weight="600">Verify</text>
+    </g>
+  </g>
+</svg>
