@@ -139,6 +139,90 @@
     const entityNameInput = document.querySelector('[data-field-entity-name]');
     const hiddenMode = document.querySelector('[data-field-mode]');
     const hiddenEntity = document.querySelector('[data-field-entity-slug]');
+    const websiteInput = document.querySelector('[data-field-website]');
+    const feedback = document.querySelector('[data-form-feedback]');
+
+    function setFeedback(message, state) {
+      if (!feedback) return;
+      feedback.textContent = message;
+      feedback.hidden = false;
+      feedback.className = `form-feedback form-feedback-${state || 'info'}`;
+    }
+
+    function clearFeedback() {
+      if (!feedback) return;
+      feedback.hidden = true;
+      feedback.textContent = '';
+      feedback.className = 'form-feedback';
+    }
+
+    function clearInvalidState(field) {
+      if (!field) return;
+      field.removeAttribute('aria-invalid');
+    }
+
+    function clearAllInvalidStates() {
+      for (const field of form.querySelectorAll('[aria-invalid="true"]')) {
+        clearInvalidState(field);
+      }
+    }
+
+    function fieldLabel(field) {
+      if (!field || !field.id) return 'This field';
+      const label = form.querySelector(`label[for="${field.id}"]`);
+      return label ? label.textContent.trim() : 'This field';
+    }
+
+    function focusInvalidField(field, message) {
+      if (!field) return false;
+      field.setAttribute('aria-invalid', 'true');
+      setFeedback(message, 'error');
+      field.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      field.focus();
+      return false;
+    }
+
+    function normalizeWebsite(value) {
+      const trimmed = String(value || '').trim();
+      if (!trimmed) return '';
+      const normalized = /^[a-z][a-z0-9+.-]*:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+
+      try {
+        const parsed = new URL(normalized);
+        if (!parsed.hostname) return null;
+        return parsed.toString();
+      } catch {
+        return null;
+      }
+    }
+
+    function validateForm() {
+      clearFeedback();
+      clearAllInvalidStates();
+
+      const requiredFields = Array.from(form.querySelectorAll('[required]'));
+      for (const field of requiredFields) {
+        if (!String(field.value || '').trim()) {
+          return focusInvalidField(field, `${fieldLabel(field)} is required.`);
+        }
+      }
+
+      const emailField = form.querySelector('[name="officialEmail"]');
+      const emailValue = String(emailField?.value || '').trim();
+      if (emailField && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailValue)) {
+        return focusInvalidField(emailField, 'Official email must be a valid email address.');
+      }
+
+      if (websiteInput) {
+        const normalizedWebsite = normalizeWebsite(websiteInput.value);
+        if (String(websiteInput.value || '').trim() && !normalizedWebsite) {
+          return focusInvalidField(websiteInput, 'Official website must look like example.org or https://example.org.');
+        }
+        websiteInput.value = normalizedWebsite || '';
+      }
+
+      return true;
+    }
 
     const params = new URLSearchParams(window.location.search);
     const mode = params.get('mode');
@@ -160,8 +244,19 @@
       }
     }
 
+    for (const field of form.querySelectorAll('input, textarea')) {
+      field.addEventListener('input', function () {
+        clearInvalidState(field);
+        clearFeedback();
+      });
+    }
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+
+      if (!validateForm()) {
+        return;
+      }
 
       const formData = new FormData(form);
       const modeValue = formData.get('mode') || 'new';
@@ -186,8 +281,9 @@
         `Additional notes: ${formData.get('notes') || ''}`,
       ];
 
+      setFeedback('Opening your mail app. If nothing happens, email hello@gder.net directly.', 'info');
       const mailto = `mailto:hello@gder.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-      window.location.href = mailto;
+      window.location.assign(mailto);
     });
   }
 

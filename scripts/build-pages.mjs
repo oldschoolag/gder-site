@@ -516,9 +516,10 @@ function listingPage() {
       </section>
 
       <section class="form-shell">
-        <form data-listing-form>
+        <form data-listing-form novalidate>
           <input type="hidden" name="mode" value="new" data-field-mode />
           <input type="hidden" name="entitySlug" value="" data-field-entity-slug />
+          <p class="form-feedback" data-form-feedback hidden aria-live="polite"></p>
 
           <div class="form-grid">
             <div class="form-field">
@@ -543,7 +544,8 @@ function listingPage() {
             </div>
             <div class="form-field">
               <label class="field-label" for="officialWebsite">Official website</label>
-              <input id="officialWebsite" class="field-input" type="url" name="officialWebsite" />
+              <input id="officialWebsite" class="field-input" type="text" name="officialWebsite" inputmode="url" placeholder="example.org or https://example.org" data-field-website />
+              <p class="field-help">Optional. You can enter example.org — GDER will normalize it.</p>
             </div>
             <div class="form-field form-field-wide">
               <label class="field-label" for="governance">Governance</label>
@@ -577,7 +579,7 @@ function listingPage() {
 
           <div class="form-actions">
             <button class="button button-primary" type="submit">Send to GDER</button>
-            <p class="form-note">This opens an email draft to hello@gder.net with the information you entered.</p>
+            <p class="form-note">This opens an email draft to hello@gder.net with the information you entered. If your mail app does not open, email hello@gder.net directly.</p>
           </div>
         </form>
       </section>

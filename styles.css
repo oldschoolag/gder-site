@@ -332,6 +332,12 @@ h3 {
   border-color: rgba(73, 100, 255, 0.5);
 }
 
+.field-input[aria-invalid="true"],
+.field-textarea[aria-invalid="true"] {
+  border-color: rgba(197, 38, 69, 0.5);
+  outline: 2px solid rgba(197, 38, 69, 0.14);
+}
+
 .search-suggestions {
   position: relative;
   margin-top: 12px;
@@ -419,6 +425,33 @@ h3 {
 .form-intro {
   margin-top: 14px;
   max-width: 58ch;
+}
+
+.field-help {
+  margin: 10px 4px 0;
+  color: var(--slate-soft);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.form-feedback {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  line-height: 1.55;
+}
+
+.form-feedback-error {
+  color: #8d1c2e;
+  background: rgba(197, 38, 69, 0.08);
+  border-color: rgba(197, 38, 69, 0.24);
+}
+
+.form-feedback-info {
+  color: var(--ink);
+  background: rgba(73, 100, 255, 0.08);
+  border-color: rgba(73, 100, 255, 0.2);
 }
 
 .entity-card {
