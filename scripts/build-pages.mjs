@@ -430,7 +430,7 @@ function entityPage(entity) {
           <div>
             <p class="eyebrow">Research set</p>
             <h1>${escapeHtml(entity.displayName)}</h1>
-            <p class="page-copy">${escapeHtml(entity.legalName && entity.legalName !== entity.displayName ? entity.legalName : 'Current public entry in GDER.')}</p>
+            <p class="page-copy">Current public entry in GDER.</p>
           </div>
           <span class="entity-status">${escapeHtml(hasValue(entity.status) ? titleCaseFromKey(entity.status) : 'Research set')}</span>
         </div>
@@ -475,7 +475,7 @@ function fullListPage() {
             <span class="list-name">${escapeHtml(entity.displayName)}</span>
             <p class="list-meta">${escapeHtml(safe(entity.legalWrapperType, 'Wrapper pending'))} · ${escapeHtml(safe(entity.jurisdiction, 'Jurisdiction pending'))}</p>
           </div>
-          <span>Open</span>
+          <span class="list-row-action">Open</span>
         </a>
       `;
     })

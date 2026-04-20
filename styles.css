@@ -240,6 +240,7 @@ h2,
 h3 {
   margin: 0;
   letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
 h1 {
@@ -285,6 +286,7 @@ h3 {
   margin: 0;
   color: var(--slate);
   line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .hero-subhead {
@@ -334,11 +336,12 @@ h3 {
   position: relative;
   margin-top: 12px;
   z-index: 20;
+  max-height: min(55vh, 420px);
   background: rgba(255, 255, 255, 0.98);
   border: 1px solid var(--line-strong);
   border-radius: 22px;
   box-shadow: var(--shadow-soft);
-  overflow: hidden;
+  overflow: auto;
 }
 
 .suggestion-list {
@@ -406,6 +409,10 @@ h3 {
 .entity-head {
   margin-bottom: 20px;
   flex-wrap: wrap;
+}
+
+.page-topline .entity-status {
+  width: fit-content;
 }
 
 .page-copy,
@@ -544,6 +551,23 @@ h3 {
   color: var(--ink);
 }
 
+.list-row-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .list-meta {
   margin-top: 6px;
 }
@@ -587,6 +611,11 @@ h3 {
 
 .form-note {
   max-width: 56ch;
+}
+
+.entity-actions .button,
+.form-actions .button {
+  flex-shrink: 0;
 }
 
 .legal-list {
@@ -708,31 +737,50 @@ h3 {
   .request-card,
   .site-footer,
   .footer-links-grid,
-  .entity-grid,
-  .form-grid,
   .page-topline,
   .entity-head,
-  .list-row {
-    display: block;
+  .list-row,
+  .entity-actions,
+  .form-actions {
+    display: grid;
   }
 
-  .request-card > * + *,
-  .site-footer > * + *,
-  .footer-links-grid > * + *,
-  .entity-grid > * + *,
-  .form-grid > * + *,
-  .page-topline > * + *,
-  .entity-head > * + *,
-  .list-row > * + * {
-    margin-top: 12px;
+  .request-card,
+  .site-footer,
+  .footer-links-grid {
+    gap: 20px;
+  }
+
+  .page-topline,
+  .entity-head,
+  .list-row,
+  .entity-actions,
+  .form-actions {
+    gap: 12px;
+  }
+
+  .entity-grid,
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .site-footer {
-    gap: 0;
+    gap: 20px;
   }
 
   .footer-links-grid {
     margin-top: 24px;
+  }
+
+  .list-row-action,
+  .page-topline .entity-status {
+    width: fit-content;
+  }
+
+  .entity-actions {
+    margin-top: 0;
   }
 
   .request-card .button,
@@ -741,7 +789,8 @@ h3 {
     width: 100%;
   }
 
-  .request-card .button {
-    margin-top: 0;
+  .form-note {
+    margin-top: 2px;
+    max-width: none;
   }
 }
