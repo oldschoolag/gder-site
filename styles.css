@@ -454,6 +454,16 @@ h3 {
   border-color: rgba(73, 100, 255, 0.2);
 }
 
+.form-feedback-success {
+  color: #214535;
+  background: rgba(63, 89, 73, 0.1);
+  border-color: rgba(63, 89, 73, 0.24);
+}
+
+.submission-card .form-actions {
+  margin-top: 18px;
+}
+
 .entity-card {
   padding: clamp(24px, 4vw, 36px);
 }

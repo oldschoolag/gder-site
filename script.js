@@ -141,6 +141,9 @@
     const hiddenEntity = document.querySelector('[data-field-entity-slug]');
     const websiteInput = document.querySelector('[data-field-website]');
     const feedback = document.querySelector('[data-form-feedback]');
+    const submissionCard = document.querySelector('[data-submission-card]');
+    const openDraftButton = document.querySelector('[data-open-mail-draft]');
+    const submitButton = form.querySelector('button[type="submit"]');
 
     function setFeedback(message, state) {
       if (!feedback) return;
@@ -224,6 +227,61 @@
       return true;
     }
 
+    function buildMailtoDraft() {
+      const formData = new FormData(form);
+      const modeValue = formData.get('mode') || 'new';
+      const entityValue = formData.get('entityName') || 'Entity';
+      const subjectPrefix = modeValue === 'edit' ? 'GDER edit request' : 'GDER listing request';
+      const subject = `${subjectPrefix}: ${entityValue}`;
+
+      const lines = [
+        `Request type: ${modeValue}`,
+        `Entity name: ${formData.get('entityName') || ''}`,
+        `Legal name: ${formData.get('legalName') || ''}`,
+        `Entity type: ${formData.get('entityType') || ''}`,
+        `Documented wrapper: ${formData.get('legalWrapperType') || ''}`,
+        `Jurisdiction: ${formData.get('jurisdiction') || ''}`,
+        `Governance: ${formData.get('governance') || ''}`,
+        `Operating control: ${formData.get('operatingControl') || ''}`,
+        `Official website: ${formData.get('officialWebsite') || ''}`,
+        `Supporting evidence / sources: ${formData.get('evidenceLinks') || ''}`,
+        `Representative name: ${formData.get('representativeName') || ''}`,
+        `Representative role: ${formData.get('representativeRole') || ''}`,
+        `Official entity email: ${formData.get('officialEmail') || ''}`,
+        `Additional notes: ${formData.get('notes') || ''}`,
+      ];
+
+      return `mailto:hello@gder.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    }
+
+    function showPreparedState() {
+      if (submissionCard) {
+        submissionCard.hidden = false;
+        submissionCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      if (submitButton) {
+        submitButton.textContent = 'Open email draft again';
+      }
+
+      setFeedback(
+        'Thank you. Your email draft is ready. Send it to hello@gder.net to complete the request. Once we receive it, we will review it and it should be visible within 48 hours.',
+        'success'
+      );
+    }
+
+    function openMailtoDraft() {
+      if (!validateForm()) {
+        return;
+      }
+
+      showPreparedState();
+      const mailto = buildMailtoDraft();
+      window.setTimeout(function () {
+        window.location.assign(mailto);
+      }, 80);
+    }
+
     const params = new URLSearchParams(window.location.search);
     const mode = params.get('mode');
     const slug = params.get('entity');
@@ -251,39 +309,15 @@
       });
     }
 
+    if (openDraftButton) {
+      openDraftButton.addEventListener('click', function () {
+        openMailtoDraft();
+      });
+    }
+
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-
-      if (!validateForm()) {
-        return;
-      }
-
-      const formData = new FormData(form);
-      const modeValue = formData.get('mode') || 'new';
-      const entityValue = formData.get('entityName') || 'Entity';
-      const subjectPrefix = modeValue === 'edit' ? 'GDER edit request' : 'GDER listing request';
-      const subject = `${subjectPrefix}: ${entityValue}`;
-
-      const lines = [
-        `Request type: ${modeValue}`,
-        `Entity name: ${formData.get('entityName') || ''}`,
-        `Legal name: ${formData.get('legalName') || ''}`,
-        `Entity type: ${formData.get('entityType') || ''}`,
-        `Documented wrapper: ${formData.get('legalWrapperType') || ''}`,
-        `Jurisdiction: ${formData.get('jurisdiction') || ''}`,
-        `Governance: ${formData.get('governance') || ''}`,
-        `Operating control: ${formData.get('operatingControl') || ''}`,
-        `Official website: ${formData.get('officialWebsite') || ''}`,
-        `Supporting evidence / sources: ${formData.get('evidenceLinks') || ''}`,
-        `Representative name: ${formData.get('representativeName') || ''}`,
-        `Representative role: ${formData.get('representativeRole') || ''}`,
-        `Official entity email: ${formData.get('officialEmail') || ''}`,
-        `Additional notes: ${formData.get('notes') || ''}`,
-      ];
-
-      setFeedback('Opening your mail app. If nothing happens, email hello@gder.net directly.', 'info');
-      const mailto = `mailto:hello@gder.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
-      window.location.assign(mailto);
+      openMailtoDraft();
     });
   }
 
