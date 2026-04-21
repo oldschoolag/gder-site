@@ -1,0 +1,38 @@
+<svg width="1500" height="500" viewBox="0 0 1500 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="GDER X header banner v2">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="500" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF9F3"/>
+      <stop offset="1" stop-color="#EDE6D9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1500" height="500" fill="url(#bg)"/>
+  <rect x="26" y="26" width="1448" height="448" rx="28" stroke="#DED5C7"/>
+
+  <rect x="84" y="74" width="72" height="72" rx="22" fill="#FFFDFC" stroke="#151816" stroke-width="3"/>
+  <rect x="102" y="88" width="36" height="5" rx="2.5" fill="#3F5949"/>
+  <text x="103" y="121" fill="#151816" font-family="DejaVu Sans, Arial, sans-serif" font-size="18" font-weight="700">OS</text>
+  <text x="182" y="116" fill="#151816" font-family="DejaVu Sans, Arial, sans-serif" font-size="42" font-weight="700">GDER</text>
+  <text x="184" y="138" fill="#6A7068" font-family="DejaVu Sans, Arial, sans-serif" font-size="10" font-weight="700">AN OLD SCHOOL PRODUCT</text>
+
+  <text x="86" y="226" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="54" font-weight="700">A public record system</text>
+  <text x="86" y="289" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="54" font-weight="700">for governed digital entities.</text>
+  <text x="88" y="349" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="22">Counterparties-first. Evidence-led. Public inspection surface.</text>
+  <text x="88" y="384" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="22">Documented wrappers, governance, operating control.</text>
+
+  <rect x="985" y="64" width="392" height="372" rx="30" fill="#FBF8F1" stroke="#DCCFBC"/>
+  <text x="1018" y="89" fill="#667066" font-family="DejaVu Sans, Arial, sans-serif" font-size="13" font-weight="700">PUBLIC RECORD SURFACE</text>
+  <rect x="1226" y="84" width="112" height="28" rx="14" fill="#EEF5F0"/>
+  <text x="1241" y="101" fill="#2F4A39" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="700">RESEARCH SET LIVE</text>
+  <text x="1018" y="167" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="30" font-weight="700">Entity Record</text>
+  <text x="1018" y="193" fill="#687067" font-family="DejaVu Sans, Arial, sans-serif" font-size="14">Research-set-led public inspection view</text>
+  <line x1="1018" y1="208" x2="1338" y2="208" stroke="#E7DED0"/>
+
+  <text x="1018" y="238" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700">WRAPPER</text>
+  <text x="1160" y="238" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="17">Documented</text>
+  <text x="1018" y="284" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700">GOVERNANCE</text>
+  <text x="1160" y="284" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="17">Structured</text>
+  <text x="1018" y="330" fill="#141715" font-family="DejaVu Sans, Arial, sans-serif" font-size="17" font-weight="700">CONTROL</text>
+  <text x="1160" y="330" fill="#5E665D" font-family="DejaVu Sans, Arial, sans-serif" font-size="17">Inspectable</text>
+  <rect x="1018" y="370" width="156" height="30" rx="15" fill="#EEF5F0"/>
+  <text x="1061" y="388" fill="#2F4A39" font-family="DejaVu Sans, Arial, sans-serif" font-size="11" font-weight="700">EVIDENCE-LED</text>
+</svg>
